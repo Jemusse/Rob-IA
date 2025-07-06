@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Potex.G</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #timer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 12px;
+      font-size: 22px;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    iframe {
+      width: 100%;
+      height: calc(100% - 50px);
+      border: none;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="timer">00:00:00</div>
+  <iframe src="https://is.gd/hHdRiZ"></iframe>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hrs = String(now.getHours()).padStart(2, '0');
+      const mins = String(now.getMinutes()).padStart(2, '0');
+      const secs = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('timer').innerText = `🕒 ${hrs}:${mins}:${secs}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
