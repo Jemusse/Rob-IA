@@ -11,7 +11,8 @@
       padding: 0;
       font-family: Arial, sans-serif;
       height: 100vh;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
     #timer {
       background-color: #222;
@@ -20,23 +21,62 @@
       padding: 12px;
       font-size: 22px;
       font-weight: bold;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
     }
     iframe {
-      width: 100%;
-      height: calc(100% - 50px);
+      flex: 1;
       border: none;
-      margin-top: 50px;
+      width: 100%;
+    }
+    #bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      background-color: #111;
+      color: #fff;
+      padding: 10px;
+      font-size: 18px;
+    }
+    .side {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .side span {
+      background: #333;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+    .btn {
+      background: #28a745;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <div id="timer">00:00:00</div>
+
+  <!-- WebView -->
   <iframe src="https://is.gd/hHdRiZ"></iframe>
 
+  <!-- Barra Inferior -->
+  <div id="bottom-bar">
+    <div class="side" id="left-side">
+      <span>4x</span>
+      <span>5x</span>
+      <span>7x</span>
+      <button class="btn">Possível</button>
+    </div>
+    <div class="side" id="right-side">
+      <span>Protex 2.10x</span>
+      <span>Protex 1.50x</span>
+      <span>Protex 2.35x</span>
+    </div>
+  </div>
+
+  <!-- Script do Timer -->
   <script>
     function updateClock() {
       const now = new Date();
@@ -49,4 +89,4 @@
     updateClock();
   </script>
 </body>
-</html>
+                </html>
